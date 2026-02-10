@@ -4,8 +4,11 @@ using System.Globalization;
 
 namespace com.rorisoft.utils
 {
-    public class ParseUtils
+    public static class ParseUtils
     {
+
+        public static string ToInvariant(this decimal value) => value.ToString(CultureInfo.InvariantCulture);
+
         //--- METODOS PARSE
         //Métodos PARSE
         public static decimal parseDecimal(object cad)
