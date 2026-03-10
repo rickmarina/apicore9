@@ -68,7 +68,7 @@ namespace com.rorisoft.structures.tree
         public List<POI<TData>> findNeighbours(double minLat, double minLon, double maxLat, double maxLon)
         {
             List<POI<TData>> neighbourSet = new List<POI<TData>>();
-            Boundary areaOfInterest = getRectangle(normalizeLatitude(minLat), normalizeLongitude(minLon),maxLat - minLat, maxLon - minLon);
+            Boundary areaOfInterest = getRectangle(normalizeLatitude(minLat), normalizeLongitude(minLon), normalizeLatitude(maxLat) - normalizeLatitude(minLat), normalizeLongitude(maxLon) - normalizeLongitude(minLon));
             rootNode.findNeighboursWithinRectangle(neighbourSet, areaOfInterest);
             return neighbourSet;
         }
