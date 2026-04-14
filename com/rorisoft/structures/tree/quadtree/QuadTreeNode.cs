@@ -337,6 +337,32 @@ namespace com.rorisoft.structures.tree.quadtree
             return mBottomRightNode != null ? mBottomRightNode : (mBottomRightNode = new QuadTreeNode<TData>(mBounds.y + halfHeight, mBounds.x + halfWidth, halfHeight, halfWidth));
         }
 
+        public List<POI<TData>> GetAllPOIs()
+        {
+            List<POI<TData>> pois = [];
+            
+            if (mTopLeftNode is not null)
+            {
+                pois.AddRange(mTopLeftNode.GetAllPOIs());
+            }
+            if (mTopRightNode is not null)
+            {
+                pois.AddRange(mTopRightNode.GetAllPOIs());
+            }
+            if (mBottomLeftNode is not null)
+            {
+                pois.AddRange(mBottomLeftNode.GetAllPOIs());
+            }
+            if (mBottomRightNode is not null)
+            {
+                pois.AddRange(mBottomRightNode.GetAllPOIs());
+            }
+
+            pois.AddRange(mNeighbours);
+
+            return pois;
+        }
+
         protected double getLongitude()
         {
             return mBounds.x;

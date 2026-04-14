@@ -55,19 +55,44 @@ namespace com.rorisoft.utils
         }
         public static double parseDouble(String cad)
         {
-            double resultado = 0;
-            if (!String.IsNullOrEmpty(cad))
+            if (String.IsNullOrEmpty(cad))
+                return 0;
+            try
             {
-                try
-                {
-                    resultado = Double.Parse(cad.Replace(".", ","));
-                }
-                catch (Exception)
-                {
-                    resultado = 0;
-                }
+                return Double.Parse(cad.Replace(".", ","));
             }
-            return resultado;
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+
+        public static double parseDoubleCulture(string cad, CultureInfo culture)
+        {
+            if (String.IsNullOrEmpty(cad))
+                return 0;
+
+            try
+            {
+                return Double.Parse(cad, culture);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        public static double parseDoubleInvariant(String cad)
+        {
+            if (String.IsNullOrEmpty(cad))
+                return 0;
+            try
+            {
+                return Double.Parse(cad, CultureInfo.InvariantCulture);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
 
         public static int parseInteger(object cad)
@@ -156,7 +181,8 @@ namespace com.rorisoft.utils
             try
             {
                 res = DateTime.Parse(cad);
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 res = null;
             }

@@ -104,6 +104,16 @@ namespace com.rorisoft.structures.tree
             return longitude + QuadTreeConstants.NORMALIZE_X;
         }
 
+        /// <summary>
+        ///  Iterates through all the nodes of the quadtree and returns a list with all the pois 
+        ///  (all the neighbors of all quadrants) 
+        /// </summary>
+        /// <returns></returns>
+        public List<POI<TData>> GetAllPOIs()
+        {
+            return rootNode.GetAllPOIs();
+        }
+
     }
 
 
