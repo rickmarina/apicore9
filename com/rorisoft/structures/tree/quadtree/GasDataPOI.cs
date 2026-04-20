@@ -1,4 +1,5 @@
-﻿using com.rorisoft.structures.tree.quadtree;
+﻿using apicore9.com.rorisoft.google;
+using com.rorisoft.structures.tree.quadtree;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,9 @@ namespace com.rorisoft.structures.tree.quadtree
 {
     public class GasDataPOI
     {
+        public int ideess {get;set;}
         public string pais { get; set; }
+        public string provincia {get;set;}
         public double latitud { get; set; }
         public double longitud { get; set; }
         public string rotulo { get; set; }
@@ -15,9 +18,11 @@ namespace com.rorisoft.structures.tree.quadtree
         public decimal precio95 { get; set; }
         public decimal precio98 { get; set; }
         public decimal precioDiesel { get; set; }
+        public decimal precioDieselPlus { get; set; }
         public decimal precioGLP { get; set; }
         public string bandera { get; set; }
         public string horario { get; set; }
+        public string urlImageMap {get; set; }
 
         public GasDataPOI()
         {

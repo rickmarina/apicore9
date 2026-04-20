@@ -77,6 +77,7 @@ com/rorisoft/
   ApiException.cs
   BBDDException.cs
  geo/GeoUtils.cs
+ google/GoogleSignedUrl.cs
  log/
   ILogable.cs
   LogConstants.cs
