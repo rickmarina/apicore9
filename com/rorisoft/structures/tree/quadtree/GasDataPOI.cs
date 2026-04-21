@@ -22,7 +22,6 @@ namespace com.rorisoft.structures.tree.quadtree
         public decimal precioGLP { get; set; }
         public string bandera { get; set; }
         public string horario { get; set; }
-        public string urlImageMap {get; set; }
 
         public GasDataPOI()
         {
