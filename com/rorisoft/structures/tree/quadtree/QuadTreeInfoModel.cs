@@ -19,9 +19,10 @@ namespace com.rorisoft.structures.tree
             LOADING_DATA,
             ERROR
         }
-        public long queries { get; set; }
-        public STATUS status { get; set; }
-        public long totalPois { get; set; }
+        public long queries { get; set; } = 0;
+        public STATUS status { get; set; } = STATUS.EMPTY;
+        public long totalPois { get; set; } = 0;
+        public DateTime lastUpdated {get;set;} = DateTime.UtcNow;
 
 
     }

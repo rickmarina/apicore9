@@ -22,13 +22,13 @@ namespace com.rorisoft.structures.tree
         public QuadTree()
         {
             rootNode = new QuadTreeNode<TData>(0, 0, QuadTreeConstants.TOTAL_Y_DEGREES, QuadTreeConstants.TOTAL_X_DEGREES);
-
             info = new QuadTreeInfoModel() { queries = 0, totalPois = 0, status = QuadTreeInfoModel.STATUS.EMPTY };
         }
 
         public QuadTree(QuadTreeNode<TData> root)
         {
             rootNode = root;
+            info = new QuadTreeInfoModel() { queries = 0, totalPois = 0, status = QuadTreeInfoModel.STATUS.EMPTY };
         }
 
         public void addPOI(POI<TData> poi)
