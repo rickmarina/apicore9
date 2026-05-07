@@ -75,7 +75,9 @@ com/rorisoft/
   ApiException.cs
   BBDDException.cs
  geo/GeoUtils.cs
- google/GoogleSignedUrl.cs
+ google/
+  GoogleSignedUrl.cs
+  PolylineDecoder.cs
  log/
   ILogable.cs
   LogConstants.cs
@@ -337,7 +339,7 @@ obj/Debug/net9.0/
  zstdsharp.port/0.8.5/lib/net9.0/ZstdSharp.dll
 
 [analyzerReferences]
-../../../../Program Files/dotnet/sdk/10.0.103/Sdks/Microsoft.NET.Sdk/analyzers/
+<DOTNET>/sdk/10.0.103/Sdks/Microsoft.NET.Sdk/analyzers/
  Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll
  Microsoft.CodeAnalysis.NetAnalyzers.dll
 <NUGET>/
@@ -352,5 +354,5 @@ obj/Debug/net9.0/
   System.Text.RegularExpressions.Generator.dll
 
 [analyzerConfigFiles]
-../../../../Program Files/dotnet/sdk/10.0.103/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_9_default.globalconfig
+<DOTNET>/sdk/10.0.103/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_9_default.globalconfig
 obj/Debug/net9.0/apicore9.GeneratedMSBuildEditorConfig.editorconfig
