@@ -145,6 +145,14 @@ namespace com.rorisoft.db
             else
                 this.comando?.Parameters.AddWithValue(param, val);
         }
+        public void addParameter(string param, byte[]? arr)
+        {
+            if (arr is null)
+                this.comando?.Parameters.AddWithValue(param, DBNull.Value);
+            else
+                this.comando?.Parameters.AddWithValue(param, arr);
+        }
+
         public void addParameterLike(String param, String value)
         {
             this.comando?.Parameters.AddWithValue(param, "%" + value + "%");
@@ -200,10 +208,14 @@ namespace com.rorisoft.db
         public T ejecutarScalar<T>()
         {
             T resultado = default(T);
+
+            if (this.comando is null)
+                throw new BBDDException("Command cannot be null. It must be set before calling ejecutarScalar<T>()");
+                
             try
             {
                 object scalarResult = this.comando.ExecuteScalar();
-                resultado = (T)(dynamic)scalarResult;
+                resultado = (T)scalarResult;
             }
             catch (Exception) { resultado = default(T); }
             return resultado;

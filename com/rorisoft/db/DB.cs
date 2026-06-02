@@ -89,6 +89,17 @@ namespace com.rorisoft.db
             }
         }
 
+        public void addParameter(string param, byte[]? arr)
+        {
+            if (this.motordb == null) 
+                return;
+            
+            if (arr is null)
+                this.motordb?.addParameter(param, DBNull.Value);
+            else
+                this.motordb?.addParameter(param, arr);
+        }
+
         public void addParameterLike(string param, string val)
         {
             if (this.motordb != null)

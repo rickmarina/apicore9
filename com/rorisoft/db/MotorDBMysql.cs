@@ -96,10 +96,16 @@ namespace com.rorisoft.db
 
         public void setComando(String q) { this.comando = new MySqlCommand(q, this.conexion); }
         public void setComando(String q, long limite) { setComando(q + " limit " + limite.ToString() + ";"); }
-        public void setComandoTimeOut(String q, int t) { this.comando.CommandTimeout = t; setComando(q); }
+        public void setComandoTimeOut(String q, int t) { 
+            if (this.comando is not null) 
+                this.comando.CommandTimeout = t; setComando(q); 
+        }
 
-        public void setTimeOut(int t) { this.comando.CommandTimeout = t; }
-        public void clearParameters() { this.comando.Parameters.Clear(); }
+        public void setTimeOut(int t) { 
+            if (this.comando is not null) 
+            this.comando.CommandTimeout = t; 
+        }
+        public void clearParameters() { this.comando?.Parameters.Clear(); }
 
         public void addParameter(String param, string? val)
         {
@@ -108,30 +114,37 @@ namespace com.rorisoft.db
             else
                 this.comando?.Parameters.AddWithValue(param, val);
         }
-        public void addParameter(String param, DBNull val) { this.comando.Parameters.AddWithValue(param, DBNull.Value); }
-        public void addParameter(String param, int val) { this.comando.Parameters.AddWithValue(param, val); }
-        public void addParameter(String param, decimal val) { this.comando.Parameters.AddWithValue(param, val); }
-        public void addParameter(String param, double val) { this.comando.Parameters.AddWithValue(param, val); }
-        public void addParameter(String param, long val) { this.comando.Parameters.AddWithValue(param, val); }
-        public void addParameter(String param, bool val) { this.comando.Parameters.AddWithValue(param, val); }
-        public void addParameter(String param, DateTime val) { this.comando.Parameters.AddWithValue(param, val); }
+        public void addParameter(String param, DBNull val) { this.comando?.Parameters.AddWithValue(param, DBNull.Value); }
+        public void addParameter(String param, int val) { this.comando?.Parameters.AddWithValue(param, val); }
+        public void addParameter(String param, decimal val) { this.comando?.Parameters.AddWithValue(param, val); }
+        public void addParameter(String param, double val) { this.comando?.Parameters.AddWithValue(param, val); }
+        public void addParameter(String param, long val) { this.comando?.Parameters.AddWithValue(param, val); }
+        public void addParameter(String param, bool val) { this.comando?.Parameters.AddWithValue(param, val); }
+        public void addParameter(String param, DateTime val) { this.comando?.Parameters.AddWithValue(param, val); }
         public void addParameter(String param, Nullable<DateTime> val)
         {
             if (val == null)
-                this.comando.Parameters.AddWithValue(param, DBNull.Value);
+                this.comando?.Parameters.AddWithValue(param, DBNull.Value);
             else
-                this.comando.Parameters.AddWithValue(param, val);
+                this.comando?.Parameters.AddWithValue(param, val);
         }
         public void addParameter(String param, Nullable<Double> val)
         {
             if (val == null)
-                this.comando.Parameters.AddWithValue(param, DBNull.Value);
+                this.comando?.Parameters.AddWithValue(param, DBNull.Value);
             else
-                this.comando.Parameters.AddWithValue(param, val);
+                this.comando?.Parameters.AddWithValue(param, val);
+        }
+        public void addParameter(string param, byte[]? arr)
+        {
+            if (arr is null)
+                this.comando?.Parameters.AddWithValue(param, DBNull.Value);
+            else
+                this.comando?.Parameters.AddWithValue(param, arr);
         }
         public void addParameterLike(String param, String value)
         {
-            this.comando.Parameters.AddWithValue(param, "%" + value + "%");
+            this.comando?.Parameters.AddWithValue(param, "%" + value + "%");
         }
 
 

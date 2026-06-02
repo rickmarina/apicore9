@@ -41,6 +41,7 @@ namespace com.rorisoft.db
         void addParameter(String param, DateTime val);
         void addParameter(String param, Nullable<DateTime> val);
         void addParameter(String param, Nullable<Double> val);
+        void addParameter(string param, byte[]? arr);
         void addParameterLike(String param, String value);
 
         /// <summary>
