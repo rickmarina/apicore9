@@ -40,7 +40,35 @@ namespace com.rorisoft.geo
             return d;
         }
 
+        /// <summary>
+        /// Calcula el lado de un punto respecto a una línea definida por dos puntos
+        /// </summary>
+        /// <param name="x1">Coordenada X del primer punto de la línea</param>
+        /// <param name="y1">Coordenada Y del primer punto de la línea</param>
+        /// <param name="x2">Coordenada X del segundo punto de la línea</param>
+        /// <param name="y2">Coordenada Y del segundo punto de la línea</param>
+        /// <param name="x">Coordenada X del punto a evaluar</param>
+        /// <param name="y">Coordenada Y del punto a evaluar</param>
+        /// <returns></returns>
+        public static SIDES Side(double x1, double y1, double x2, double y2, double x, double y) => (SIDES)Math.Sign(Cross2D(x2 - x1, y2 - y1, x - x1, y - y1));
 
+        /// <summary>
+        /// Calcula el producto cruzado de dos vectores 2D
+        /// </summary>
+        /// <param name="x1">Coordenada X del primer vector</param>
+        /// <param name="y1">Coordenada Y del primer vector</param>
+        /// <param name="x2">Coordenada X del segundo vector</param>
+        /// <param name="y2">Coordenada Y del segundo vector</param>
+        /// <returns>El producto cruzado de los dos vectores</returns>
+        public static double Cross2D(double x1, double y1, double x2, double y2) => x1 * y2 - y1 * x2;
+
+        /// <summary>
+        /// Convierte grados a radianes
+        /// </summary>
+        /// <param name="n">Valor en grados</param>
+        /// <returns>Valor en radianes</returns>
         private static double deg2rad(double n) { return Math.PI * n / 180; }
+
+
     }
 }
